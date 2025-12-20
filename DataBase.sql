@@ -93,15 +93,15 @@ INSERT INTO users (username, email, password, role) VALUES
 
 -- Insertion de produits d'exemple
 INSERT INTO items (name, description, price, category_id, stock, image_url) VALUES
-('iPhone 15 Pro', 'Smartphone Apple avec puce A17 Pro, caméra 48MP et écran Super Retina XDR', 1199.99, 1, 50, 'https://images.unsplash.com/photo-1696446702183-cbd50c781e28?w=500'),
-('Samsung Galaxy S24', 'Smartphone Samsung avec écran AMOLED 6.2", processeur Snapdragon 8 Gen 3', 999.99, 1, 45, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500'),
-('MacBook Pro M3', 'Ordinateur portable Apple avec puce M3, 16GB RAM, écran Liquid Retina XDR', 2499.99, 2, 30, 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500'),
-('Dell XPS 15', 'PC portable ultra-performant avec Intel i9, 32GB RAM, écran 4K OLED', 1899.99, 2, 25, 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500'),
-('Sony WH-1000XM5', 'Casque sans fil à réduction de bruit active, autonomie 30h', 399.99, 3, 100, 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500'),
-('AirPods Pro 2', 'Écouteurs sans fil Apple avec réduction de bruit adaptative', 279.99, 3, 150, 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=500'),
-('PlayStation 5', 'Console de jeu Sony avec SSD ultra-rapide et ray tracing', 499.99, 4, 40, 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=500'),
-('Xbox Series X', 'Console Microsoft 4K avec 1TB de stockage et Quick Resume', 499.99, 4, 35, 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=500'),
-('Apple Watch Ultra 2', 'Montre connectée robuste avec GPS précis et autonomie 36h', 849.99, 5, 60, 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500'),
-('Samsung Galaxy Watch 6', 'Smartwatch Android avec suivi santé avancé et écran AMOLED', 349.99, 5, 70, 'https://images.unsplash.com/photo-1617625802912-cdf4eaa937e2?w=500'),
-('iPad Pro 12.9"', 'Tablette Apple avec puce M2, écran Liquid Retina XDR', 1099.99, 2, 55, 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500'),
-('Bose QuietComfort', 'Casque confortable avec réduction de bruit premium', 349.99, 3, 80, 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500');
+('iPhone 15 Pro', 'Smartphone Apple avec puce A17 Pro, caméra 48MP et écran Super Retina XDR', 1199.99, 1, 50, 'img/iphone15pro.jpg'),
+('Samsung Galaxy S24', 'Smartphone Samsung avec écran AMOLED 6.2", processeur Snapdragon 8 Gen 3', 999.99, 1, 45, 'im/s24.jsp'),
+('MacBook Pro M3', 'Ordinateur portable Apple avec puce M3, 16GB RAM, écran Liquid Retina XDR', 2499.99, 2, 30, 'img/macbookprom3.webp'),
+('Dell XPS 15', 'PC portable ultra-performant avec Intel i9, 32GB RAM, écran 4K OLED', 1899.99, 2, 25, 'img/dellxps15.jpg'),
+('Sony WH-1000XM5', 'Casque sans fil à réduction de bruit active, autonomie 30h', 399.99, 3, 100, 'img/sonyxm5.jpg'),
+('AirPods Pro 2', 'Écouteurs sans fil Apple avec réduction de bruit adaptative', 279.99, 3, 150, 'img/airpodspro2.webp'),
+('PlayStation 5', 'Console de jeu Sony avec SSD ultra-rapide et ray tracing', 499.99, 4, 40, 'img/ps5.webp'),
+('Xbox Series X', 'Console Microsoft 4K avec 1TB de stockage et Quick Resume', 499.99, 4, 35, 'img/xbox.jpg'),
+('Apple Watch Ultra 2', 'Montre connectée robuste avec GPS précis et autonomie 36h', 849.99, 5, 60, 'img/ultra2.avif'),
+('Samsung Galaxy Watch 6', 'Smartwatch Android avec suivi santé avancé et écran AMOLED', 349.99, 5, 70, 'img/watch6.webp'),
+('iPad Pro 12.9"', 'Tablette Apple avec puce M2, écran Liquid Retina XDR', 1099.99, 2, 55, 'img/ipadpro.webp'),
+('Bose QuietComfort', 'Casque confortable avec réduction de bruit premium', 349.99, 3, 80, 'img/bose.jpg');

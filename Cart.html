@@ -8,19 +8,29 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header class="main-header">
         <div class="container">
-            <nav>
-                <a href="index.html" class="logo">🛒 TechShop</a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="cart.html" class="cart-icon">
-                        Panier <span class="cart-count" id="cartCount">0</span>
-                    </a></li>
-                    <li id="authLinks">
-                        <a href="login.html" class="btn btn-primary btn-sm">Connexion</a>
-                    </li>
-                </ul>
+            <nav class="nav">
+                <!-- LEFT -->
+                <div class="nav-left">
+                    <a href="index.html" class="logo">
+                        🛒 <span>TechShop</span>
+                    </a>
+
+                    <a href="index.html" class="nav-link active">Accueil</a>
+                    <a href="cart.html" class="nav-link">
+                        Panier
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="nav-right">
+                    <span class="user-greeting">Bonjour, <strong>heesh</strong></span>
+                    <a href="admin.html" class="btn btn-admin btn-sm">Admin</a>
+
+                    <button class="btn btn-danger btn-sm">Déconnexion</button>
+                </div>
             </nav>
         </div>
     </header>

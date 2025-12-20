@@ -143,13 +143,40 @@ nav {
 }
 
 /* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(5, 150, 105, 0.3);
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.35)
+    );
+    z-index: 0;
 }
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-image: url("../img/heroimage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
 
 .hero h1 {
     font-size: 3rem;
@@ -502,3 +529,102 @@ nav {
     .filters { flex-direction: column; }
     .cart-item { flex-direction: column; }
 }
+/* ===== HEADER FIX ===== */
+.main-header {
+    background: #e6f5ef; /* keep your mint */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px; /* SLIM */
+}
+
+/* LEFT GROUP */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+/* RIGHT GROUP */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* LOGO */
+.logo {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #111;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #111;
+}
+
+/* NAV LINKS */
+.nav-link {
+    font-weight: 600;
+    color: #222;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #0f766e;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* CART BADGE */
+.cart-count {
+    background: #0f766e;
+    color: white;
+    padding: 2px 7px;
+    font-size: 0.7rem;
+    border-radius: 999px;
+    margin-left: 4px;
+}
+
+/* USER INFO */
+.user-greeting {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.user-role {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 600;
+}
+
+/* LOGOUT BUTTON */
+.btn-danger {
+    background: #dc2626;
+    border: none;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
