@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop - Votre boutique high-tech</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">🛒 TechShop</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="cart.html" class="cart-icon">
+                        Panier <span class="cart-count" id="cartCount">0</span>
+                    </a></li>
+                    <li id="authLinks">
+                        <a href="login.html" class="btn btn-primary btn-sm">Connexion</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bienvenue sur TechShop</h1>
+            <p>Les meilleurs produits high-tech au meilleur prix</p>
+        </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <div class="container">
+        <div class="search-filters">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+                <button class="btn btn-primary" onclick="searchProducts()">Rechercher</button>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Catégorie</label>
+                    <select id="categoryFilter" onchange="applyFilters()">
+                        <option value="">Toutes les catégories</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Prix Min (€)</label>
+                    <input type="number" id="minPrice" placeholder="0" onchange="applyFilters()">
+                </div>
+                
+                <div class="filter-group">
+                    <label>Prix Max (€)</label>
+                    <input type="number" id="maxPrice" placeholder="5000" onchange="applyFilters()">
+                </div>
+                
+                <div class="filter-group">
+                    <label>Trier par</label>
+                    <select id="sortBy" onchange="applyFilters()">
+                        <option value="name">Nom (A-Z)</option>
+                        <option value="name_desc">Nom (Z-A)</option>
+                        <option value="price">Prix (croissant)</option>
+                        <option value="price_desc">Prix (décroissant)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-secondary" onclick="resetFilters()">Réinitialiser</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsContainer">
+            <div class="loading">Chargement des produits...</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Initialisation
+        checkAuth();
+        loadCategories();
+        loadProducts();
+        updateCartCount();
+    </script>
+</body>
+</html>
