@@ -88,7 +88,7 @@ INSERT INTO categories (name, description) VALUES
 -- Mot de passe: admin123 (hashé avec password_hash)
 INSERT INTO users (username, email, password, role) VALUES
 ('admin', 'admin@techshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-('user', 'user@techshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'user');
+('user', 'user@techshop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'user'),
 ('heesh', 'heesh@techshop.com', '$2y$10$EFsI4UB7bzKyN4Vx6dR0/ONzR2Nb64o50iMeBm0LGyzc8rhk8ybOK', 'admin');
 
 -- Insertion de produits d'exemple
