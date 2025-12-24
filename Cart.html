@@ -7,24 +7,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="main-header">
         <div class="container">
             <nav class="nav">
-                <!-- LEFT -->
                 <div class="nav-left">
                     <a href="index.html" class="logo">
                         🛒 <span>TechShop</span>
                     </a>
 
-                    <a href="index.html" class="nav-link ">Accueil</a>
+                    <a href="index.html" class="nav-link">Accueil</a>
                     <a href="cart.html" class="nav-link active">
                         Panier
                         <span class="cart-count" id="cartCount">0</span>
                     </a>
                 </div>
 
-                <!-- RIGHT -->
                 <div class="nav-right">
                     <a href="admin.html" class="btn btn-admin btn-sm">Admin</a>
 
@@ -34,7 +31,6 @@
         </div>
     </header>
 
-    <!-- Cart Content -->
     <div class="cart-container">
         <h1>Mon Panier</h1>
         
@@ -42,12 +38,5 @@
             <div class="loading">Chargement du panier...</div>
         </div>
     </div>
-
-    <script src="js/app.js"></script>
-    <script src="js/cart.js"></script>
-    <script>
-        checkAuth();
-        loadCart();
-    </script>
 </body>
 </html>

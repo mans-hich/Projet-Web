@@ -69,7 +69,6 @@
             text-decoration: none;
         }
 
-                /* Glassmorphism */
         .auth-box {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -77,7 +76,6 @@
             animation: fadeUp 0.6s ease;
         }
 
-        /* Fade animation */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -89,7 +87,6 @@
             }
         }
 
-        /* Animated tabs */
         .auth-tabs {
             position: relative;
         }
@@ -106,7 +103,6 @@
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
         }
 
-        /* Floating labels */
         .form-group {
             position: relative;
             margin-bottom: 1.8rem;
@@ -134,7 +130,6 @@
             transition: 0.3s;
         }
 
-        /* Floating effect */
         .form-group input:focus + label,
         .form-group input:not(:placeholder-shown) + label {
             top: -8px;
@@ -142,13 +137,11 @@
             color: var(--primary);
         }
 
-        /* Input focus glow */
         .form-group input:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(0,123,255,0.15);
         }
 
-        /* Button hover */
         .btn-primary {
             font-size: 1rem;
             padding: 12px;
@@ -161,7 +154,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
 
-        /* Smooth form switch */
         .auth-form {
             opacity: 0;
             transform: translateY(10px);
@@ -173,7 +165,6 @@
             transform: translateY(0);
         }
 
-        /* Error shake */
         .alert-error {
             animation: shake 0.3s;
         }
@@ -185,8 +176,6 @@
             75% { transform: translateX(-4px); }
             100% { transform: translateX(0); }
         }
-
-
     </style>
 </head>
 <body>
@@ -196,19 +185,18 @@
             <h2 class="text-center">TechShop</h2>
             
             <div class="auth-tabs">
-                <button class="auth-tab active" onclick="showTab('login')">Connexion</button>
-                <button class="auth-tab" onclick="showTab('register')">Inscription</button>
+                <button class="auth-tab active">Connexion</button>
+                <button class="auth-tab">Inscription</button>
             </div>
             
-            <!-- Login Form -->
-            <form id="loginForm" class="auth-form active" onsubmit="login(event)">
+            <form id="loginForm" class="auth-form active">
                 <div class="form-group">
-                    <id>Nom d'utilisateur ou Email</id>
+                    <label>Nom d'utilisateur ou Email</label>
                     <input type="text" id="loginUsername" required>
                 </div>
                 
                 <div class="form-group">
-                    <id>Mot de passe</id>
+                    <label>Mot de passe</label>
                     <input type="password" id="loginPassword" required>
                 </div>
                 
@@ -219,25 +207,24 @@
                 </button>
             </form>
             
-            <!-- Register Form -->
-            <form id="registerForm" class="auth-form" onsubmit="register(event)">
+            <form id="registerForm" class="auth-form">
                 <div class="form-group">
-                    <id>Nom d'utilisateur</id>
+                    <label>Nom d'utilisateur</label>
                     <input type="text" id="registerUsername" required minlength="3">
                 </div>
                 
                 <div class="form-group">
-                    <id>Email</id>
+                    <label>Email</label>
                     <input type="email" id="registerEmail" required>
                 </div>
                 
                 <div class="form-group">
-                    <id>Mot de passe</id>
+                    <label>Mot de passe</label>
                     <input type="password" id="registerPassword" required minlength="6">
                 </div>
                 
                 <div class="form-group">
-                    <id>Confirmer le mot de passe</id>
+                    <label>Confirmer le mot de passe</label>
                     <input type="password" id="registerPasswordConfirm" required minlength="6">
                 </div>
                 
@@ -253,97 +240,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function showTab(tab) {
-            // Update tabs
-            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Update forms
-            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
-            document.getElementById(tab + 'Form').classList.add('active');
-            
-            // Clear messages
-            document.getElementById('loginMessage').innerHTML = '';
-            document.getElementById('registerMessage').innerHTML = '';
-        }
-        
-        async function login(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
-            const messageDiv = document.getElementById('loginMessage');
-            
-            try {
-                const response = await fetch('api/auth.php?action=login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                const data = await response.json();
-                
-                if (data.success) {
-                    messageDiv.innerHTML = '<div class="alert alert-success">Connexion réussie !</div>';
-                    setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 1000);
-                } else {
-                    messageDiv.innerHTML = `<div class="alert alert-error">${data.message}</div>`;
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                messageDiv.innerHTML = '<div class="alert alert-error">Erreur de connexion</div>';
-            }
-        }
-        
-        async function register(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('registerUsername').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
-            const messageDiv = document.getElementById('registerMessage');
-            
-            if (password !== passwordConfirm) {
-                messageDiv.innerHTML = '<div class="alert alert-error">Les mots de passe ne correspondent pas</div>';
-                return;
-            }
-            
-            try {
-                const response = await fetch('api/auth.php?action=register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, email, password })
-                });
-                
-                const data = await response.json();
-                
-                if (data.success) {
-                    messageDiv.innerHTML = '<div class="alert alert-success">Inscription réussie !</div>';
-                    setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 1000);
-                } else {
-                    messageDiv.innerHTML = `<div class="alert alert-error">${data.message}</div>`;
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                messageDiv.innerHTML = '<div class="alert alert-error">Erreur lors de l\'inscription</div>';
-            }
-        }
-        
-        // Rediriger si déjà connecté
-        fetch('api/auth.php?action=check')
-            .then(res => res.json())
-            .then(data => {
-                if (data.loggedIn) {
-                    window.location.href = 'index.html';
-                }
-            });
-    </script>
 </body>
 </html>

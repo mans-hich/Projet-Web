@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="main-header">
         <div class="container">
             <nav class="nav">
-                <!-- LEFT -->
                 <div class="nav-left">
                     <a href="index.html" class="logo">
                         🛒 <span>TechShop</span>
@@ -24,7 +22,6 @@
                     </a>
                 </div>
 
-                <!-- RIGHT -->
                 <div class="nav-right">
                     <span class="user-greeting">Bonjour, <strong>heesh</strong></span>
                     <a href="admin.html" class="btn btn-admin btn-sm">Admin</a>
@@ -36,7 +33,6 @@
     </header>
 
     <div class="container">
-        <!-- Stats -->
         <div class="admin-header">
             <h1>Tableau de bord</h1>
         </div>
@@ -45,10 +41,9 @@
             <div class="loading">Chargement...</div>
         </div>
 
-        <!-- Add Product -->
         <div class="form-container" style="max-width: 100%;">
             <h2>Ajouter un produit</h2>
-            <form id="addProductForm" onsubmit="addProduct(event)">
+            <form id="addProductForm">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
                         <label>Nom du produit *</label>
@@ -89,7 +84,6 @@
             </form>
         </div>
 
-        <!-- Products List -->
         <div class="admin-table mt-2">
             <h2 style="padding: 1.5rem 1rem;">Gestion des produits</h2>
             <div id="productsTable">
@@ -98,11 +92,10 @@
         </div>
     </div>
 
-    <!-- Edit Modal -->
     <div id="editModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; padding: 2rem;">
         <div class="form-container" style="max-width: 600px; margin: 2rem auto; max-height: 90vh; overflow-y: auto;">
             <h2>Modifier le produit</h2>
-            <form id="editProductForm" onsubmit="updateProduct(event)">
+            <form id="editProductForm">
                 <input type="hidden" id="editProductId">
                 
                 <div class="form-group">
@@ -141,29 +134,10 @@
                 
                 <div style="display: flex; gap: 1rem;">
                     <button type="submit" class="btn btn-primary" style="flex: 1;">Enregistrer</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Annuler</button>
+                    <button type="button" class="btn btn-secondary">Annuler</button>
                 </div>
             </form>
         </div>
     </div>
-
-    <script src="js/app.js"></script>
-    <script src="js/admin.js"></script>
-    <script>
-        // Check admin access
-        fetch('api/auth.php?action=check')
-            .then(res => res.json())
-            .then(data => {
-                if (!data.loggedIn || data.user.role !== 'admin') {
-                    alert('Accès non autorisé');
-                    window.location.href = 'index.html';
-                } else {
-                    checkAuth();
-                    loadStats();
-                    loadCategories();
-                    loadAdminProducts();
-                }
-            });
-    </script>
 </body>
 </html>
