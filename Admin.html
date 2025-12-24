@@ -43,7 +43,7 @@
 
         <div class="form-container" style="max-width: 100%;">
             <h2>Ajouter un produit</h2>
-            <form id="addProductForm">
+            <form id="addProductForm" onsubmit="addProduct(event)">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
                         <label>Nom du produit *</label>
@@ -95,7 +95,7 @@
     <div id="editModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; padding: 2rem;">
         <div class="form-container" style="max-width: 600px; margin: 2rem auto; max-height: 90vh; overflow-y: auto;">
             <h2>Modifier le produit</h2>
-            <form id="editProductForm">
+            <form id="editProductForm" onsubmit="updateProduct(event)">
                 <input type="hidden" id="editProductId">
                 
                 <div class="form-group">
@@ -134,10 +134,28 @@
                 
                 <div style="display: flex; gap: 1rem;">
                     <button type="submit" class="btn btn-primary" style="flex: 1;">Enregistrer</button>
-                    <button type="button" class="btn btn-secondary">Annuler</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Annuler</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        fetch('api/auth.php?action=check')
+            .then(res => res.json())
+            .then(data => {
+                if (!data.loggedIn || data.user.role !== 'admin') {
+                    alert('Accès non autorisé');
+                    window.location.href = 'index.html';
+                } else {
+                    checkAuth();
+                    loadStats();
+                    loadCategories();
+                    loadAdminProducts();
+                }
+            });
+    </script>
 </body>
 </html>

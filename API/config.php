@@ -2,8 +2,8 @@
 // Configuration de la base de données
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'techshop');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_USER', 'tempmelly');
+define('DB_PASS', 'tempmelly');
 
 // Configuration des sessions
 ini_set('session.cookie_httponly', 1);

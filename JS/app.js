@@ -37,17 +37,20 @@ function updateAuthUI() {
 async function logout() {
     try {
         const response = await fetch('api/auth.php?action=logout', {
-            method: 'POST'
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
         });
         
         const data = await response.json();
         
         if (data.success) {
-            currentUser = null;
-            window.location.href = 'index.html';
+            window.location.href = 'login.html';
+        } else {
+            alert('Erreur lors de la déconnexion');
         }
     } catch (error) {
         console.error('Erreur:', error);
+        alert('Erreur lors de la déconnexion');
     }
 }
 

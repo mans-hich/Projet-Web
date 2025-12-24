@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechShop - boutique high-tech</title>
+    <title>TechShop - Votre boutique high-tech</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>   
-
+<body>
     <header class="main-header">
         <div class="container">
             <nav class="nav">
@@ -25,14 +24,11 @@
 
                 <div class="nav-right">
                     <a href="admin.html" class="btn btn-admin btn-sm">Admin</a>
-                    <button class="btn btn-danger btn-sm" >Déconnexion</button>
+                    <button class="btn btn-danger btn-sm" onclick="logout()">Déconnexion</button>
                 </div>
-
             </nav>
         </div>
     </header>
-
-
 
     <section class="hero">
         <div class="container">
@@ -44,8 +40,8 @@
     <div class="container">
         <div class="search-filters">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
-                <button class="btn btn-primary" >Rechercher</button>
+                <input type="text" id="searchInput" placeholder="Rechercher un produit..." oninput="searchProducts()">
+                <button class="btn btn-primary" onclick="searchProducts()">Rechercher</button>
             </div>
             
             <div class="filters">
@@ -78,7 +74,7 @@
                 
                 <div class="filter-group">
                     <label>&nbsp;</label>
-                    <button class="btn btn-secondary">Réinitialiser</button>
+                    <button class="btn btn-secondary" onclick="resetFilters()">Réinitialiser</button>
                 </div>
             </div>
         </div>
@@ -86,7 +82,14 @@
         <div id="productsContainer">
             <div class="loading">Chargement des produits...</div>
         </div>
-        
     </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        checkAuth();
+        loadCategories();
+        loadProducts();
+        updateCartCount();
+    </script>
 </body>
 </html>
